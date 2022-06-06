@@ -11,20 +11,3 @@ a {
   text-decoration: none;
 }
 
-.canvas-container {
-  background-color: #d8effd;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-*::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-*::-webkit-scrollbar-thumb {
-  width: 5px;
-  background-color: #4299e1;
-}

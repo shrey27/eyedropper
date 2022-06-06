@@ -3,18 +3,13 @@ import Eyedropper from "../components/Eyedropper";
 
 const HomePage = () => {
   return (
-    <Container>
-      <Container maxW="container.xl" p={0} paddingBottom="10">
-        <Flex
-          py={0}
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-        >
-          <Heading>Eyedropper Tool</Heading>
-          <Eyedropper />
-        </Flex>
-      </Container>
+    <Container maxW="container.xl">
+      <Flex alignItems="center" justifyContent="center" flexDirection="column">
+        <Heading as="h2" size="lg" margin={1}>
+          EYEDROPPER TOOL
+        </Heading>
+        <Eyedropper />
+      </Flex>
     </Container>
   );
 };

@@ -1,13 +1,13 @@
 import "../styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
-import { PebbleProvider } from "../context/PebbleContext";
+import { CanvasProvider } from "../context/CanvasContext";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider>
-      <PebbleProvider>
+      <CanvasProvider>
         <Component {...pageProps} />
-      </PebbleProvider>
+      </CanvasProvider>
     </ChakraProvider>
   );
 }
