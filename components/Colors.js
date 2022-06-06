@@ -9,7 +9,12 @@ export const Colors = () => {
     <Flex gap={1} color="white" textAlign="center" justifyContent="center">
       {dropperList.map((item, index) => {
         return (
-          <Flex flexDirection="column" position="relative" key={item + index}>
+          <Flex
+            flexDirection="column"
+            position="relative"
+            key={item + index}
+            marginTop={4}
+          >
             <Box w="20" h="20" bgColor={color[item]} cursor="pointer"></Box>
             <Text
               color="black"

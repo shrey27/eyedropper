@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { base64Img } from "../utility/constant";
 
 const CanvasContext = createContext();
 
@@ -37,6 +38,7 @@ const CanvasProvider = ({ children }) => {
   const [color, setColor] = useState(initialColors);
   const [eyedropperPosition, seteyedropperPositionition] =
     useState(initialPosition);
+  const [image, setImage] = useState(base64Img);
 
   return (
     <CanvasContext.Provider
@@ -45,6 +47,8 @@ const CanvasProvider = ({ children }) => {
         seteyedropperPositionition,
         color,
         setColor,
+        image,
+        setImage,
       }}
     >
       {children}

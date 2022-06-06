@@ -8,11 +8,15 @@ import {
   dropperList,
   initialize,
 } from "../utility/functions";
-import { base64Img } from "../utility/constant";
 import Draggable from "react-draggable";
 
 export const Canvas = () => {
-  const { eyedropperPosition, color, setColor } = useCanvas();
+  const {
+    eyedropperPosition,
+    color,
+    setColor,
+    image: UploadedImage,
+  } = useCanvas();
   const canvasRef = useRef(null);
   const [position, setPosition] = useState({
     x: 0,
@@ -44,7 +48,7 @@ export const Canvas = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     const image = new Image();
-    image.src = base64Img;
+    image.src = UploadedImage;
     image.onload = () => {
       context.clearRect(0, 0, canvas.width, canvas.height);
       const aspectRatio = image.width / image.height;
@@ -62,7 +66,7 @@ export const Canvas = () => {
       let imageData = initialize(eyedropperPosition, context);
       setColor({ ...imageData });
     };
-  }, [eyedropperPosition, setColor]);
+  }, [eyedropperPosition, setColor, UploadedImage]);
 
   return (
     <Flex alignItems="center" justifyContent="center">
