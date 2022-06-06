@@ -25,7 +25,6 @@ const HomePage = () => {
         <Heading as="h2" size="lg" margin={1}>
           EYEDROPPER TOOL
         </Heading>
-        <Eyedropper />
         <Heading as="h3" size="md" margin={1} textAlign="start" marginTop={4}>
           Choose an Image
         </Heading>
@@ -37,6 +36,7 @@ const HomePage = () => {
           margin={4}
           size={"sm"}
         />
+        <Eyedropper />
       </Flex>
     </Container>
   );
