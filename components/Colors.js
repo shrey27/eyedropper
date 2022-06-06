@@ -7,9 +7,9 @@ export const Colors = () => {
 
   return (
     <Flex gap={1} color="white" textAlign="center" justifyContent="center">
-      {dropperList.map((item) => {
+      {dropperList.map((item, index) => {
         return (
-          <Flex flexDirection="column" position="relative">
+          <Flex flexDirection="column" position="relative" key={item + index}>
             <Box w="20" h="20" bgColor={color[item]} cursor="pointer"></Box>
             <Text
               color="black"

@@ -62,7 +62,7 @@ export const Canvas = () => {
       let imageData = initialize(eyedropperPosition, context);
       setColor({ ...imageData });
     };
-  }, []);
+  }, [eyedropperPosition, setColor]);
 
   return (
     <Flex alignItems="center" justifyContent="center">
