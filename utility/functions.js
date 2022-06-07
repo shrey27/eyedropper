@@ -38,7 +38,7 @@ export const getAverageColor = (pixelData) => {
   return rgbToHex(avg.r, avg.g, avg.b);
 };
 
-export function initialize(eyedropperPosition, context) {
+export function updateDropperValues(eyedropperPosition, context) {
   let data = {};
   Object.keys(eyedropperPosition).map((item) => {
     let temp = context.getImageData(

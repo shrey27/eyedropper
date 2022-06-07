@@ -6,7 +6,7 @@ import {
   AVGWIDTH,
   AVGHEIGHT,
   dropperList,
-  initialize,
+  updateDropperValues,
 } from "../utility/functions";
 import Draggable from "react-draggable";
 
@@ -51,19 +51,20 @@ export const Canvas = () => {
     image.src = UploadedImage;
     image.onload = () => {
       context.clearRect(0, 0, canvas.width, canvas.height);
-      const aspectRatio = image.width / image.height;
-      let newWidth = canvas.width;
-      let newHeight = newWidth / aspectRatio;
-      if (newHeight > canvas.height) {
-        newHeight = canvas.height;
-        newWidth = newHeight * aspectRatio;
+
+      let _nW = canvas.width;
+      let _nH = (canvas.width * image.height) / image.width;
+
+      if (_nH > canvas.height) {
+        _nH = canvas.height;
+        _nW = (_nH * image.width) / image.height;
       }
-      let x_cood = newWidth < canvas.width ? (canvas.width - newWidth) / 2 : 0;
-      let y_cood =
-        newHeight < canvas.height ? (canvas.height - newHeight) / 2 : 0;
-      setSize({ width: newWidth, height: newHeight });
-      context.drawImage(image, x_cood, y_cood, newWidth, newHeight);
-      let imageData = initialize(eyedropperPosition, context);
+      let x_cood = _nW < canvas.width ? (canvas.width - _nW) / 2 : 0;
+      let y_cood = _nH < canvas.height ? (canvas.height - _nH) / 2 : 0;
+
+      setSize({ width: _nW, height: _nH });
+      context.drawImage(image, x_cood, y_cood, _nW, _nH);
+      let imageData = updateDropperValues(eyedropperPosition, context);
       setColor({ ...imageData });
     };
   }, [eyedropperPosition, setColor, UploadedImage]);
